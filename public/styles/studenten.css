@@ -1,9 +1,9 @@
-.main-studenten {
+.main-students {
     display: flex;
     justify-content: center;
 }
 
-.main-studenten ul {
+.main-students ul {
     list-style: none;
     display: grid;
     grid-template-rows: auto;
@@ -22,7 +22,7 @@
     }
 }
 
-ul li {
+.main-students ul li {
     display: flex;
     flex-direction: column;
     align-items: center;

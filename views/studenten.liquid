@@ -5,8 +5,8 @@
 {% render 'partials/choosebtn.liquid', title: 'Choose Button' %}
 </header>
 
-<main class="main-studenten">
-  <ul>
+<main class="main-students">
+  <ul class="ul-students">
     {% for person in persons %}
     <li>
       <img src="{{ person.avatar }}" onerror="this.src='altperson.png'" alt="Profile Image">
