@@ -1,0 +1,39 @@
+@import url(https://fonts.google.com/specimen/Open+Sans);
+
+* {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    --primary-color: #050542;
+    --secondary-color: #66e5bf;
+    --highlight-color: #A675F4;
+    --text-color: white; 
+
+    font-family: "Open Sans", serif;
+    font-size: 16px; 
+}
+
+button {
+    cursor: pointer;
+}
+
+btn-primary {
+    --btn-radius: .4rem;
+    --btn-padding: .2em 1em;
+    --btn-border: 2px solid;
+
+    border-radius: var(--btn-radius);
+    padding: var(--btn-padding);
+    border: var(--btn-border) var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transition: .2s ease-in;
+}
+
+btn-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}

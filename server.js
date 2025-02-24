@@ -2,10 +2,8 @@ import express from 'express'
 
 import { Liquid } from 'liquidjs';
 
-
 // Vul hier jullie team naam in
-const teamName = '';
-
+const teamName = 'Flex';
 
 const app = express()
 
@@ -17,7 +15,6 @@ app.engine('liquid', engine.express());
 app.set('views', './views')
 
 app.use(express.urlencoded({extended: true}))
-
 
 app.get('/', async function (request, response) {
   const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?filter={"for":"Team ${teamName}"}`)
@@ -44,7 +41,6 @@ app.post('/', async function (request, response) {
 
   response.redirect(303, '/')
 })
-
 
 app.set('port', process.env.PORT || 8000)
 
