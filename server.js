@@ -3,7 +3,8 @@ import express from 'express'
 import { Liquid } from 'liquidjs';
 
 // Vul hier jullie team naam in
-const teamName = 'Flex';
+const teamName = '';
+
 
 const app = express()
 
