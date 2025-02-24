@@ -1,0 +1,20 @@
+header {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 0 0 var(--section-radius) var(--section-radius);
+    padding: var(--section-padding);
+    position: fixed; 
+    width: 100%;
+    top: 0;
+
+    /* Flex parent */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    .header-logo {
+        width: 30px;
+        filter: brightness(0) saturate(100%) invert(12%) sepia(34%) saturate(2395%) hue-rotate(206deg) brightness(91%) contrast(115%);
+    }
+}

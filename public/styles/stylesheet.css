@@ -11,12 +11,18 @@ body {
     --secondary-color: #66e5bf;
     --highlight-color: #A675F4;
     --text-color: white; 
+    --section-radius: 1.5rem;
+    --section-padding: .5em 1em;
 
     font-family: "Open Sans", serif;
     background-color: var(--primary-color);
     font-size: 16px; 
     background-color: var(--primary-color);
     color: var(--text-color);
+}
+
+main {
+    margin-top: 5rem;
 }
 
 button {

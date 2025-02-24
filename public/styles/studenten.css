@@ -1,9 +1,9 @@
-main {
+.main-studenten {
     display: flex;
     justify-content: center;
 }
 
-main ul {
+.main-studenten ul {
     list-style: none;
     display: grid;
     grid-template-rows: auto;
