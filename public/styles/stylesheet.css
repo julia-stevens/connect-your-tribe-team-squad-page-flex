@@ -16,13 +16,14 @@ body {
     background-color: var(--primary-color);
     font-size: 16px; 
     background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 button {
     cursor: pointer;
 }
 
-btn-primary {
+.btn-primary {
     --btn-radius: .4rem;
     --btn-padding: .2em 1em;
     --btn-border: 2px solid;
@@ -35,7 +36,7 @@ btn-primary {
     transition: .2s ease-in;
 }
 
-btn-primary:hover {
+.btn-primary:hover {
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
