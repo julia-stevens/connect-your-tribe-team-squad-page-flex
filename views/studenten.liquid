@@ -1,0 +1,20 @@
+{% render 'partials/head.liquid', title: 'Squad page' %}
+
+{% render 'partials/header.liquid', title: 'Squad page' %}
+
+<main>
+  <ul>
+    {% for person in persons %}
+    <li>
+      <img src="{{ person.avatar }}" onerror="this.src='altperson.png'" alt="Profile Image">
+      <a href="/student/{{ person.id }}">{{ person.name }}</a>
+      <span class="person-info">
+        <img class="refresh-btn" src="refresh.png" alt="Refreshnop">
+        <span class="info-text">Geboortedatum: {{ person.birthdate | date: "%d-%m-%Y" }}</span>
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+</main>
+
+<img src="../public/styles/" alt="">
