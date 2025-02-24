@@ -1,3 +1,11 @@
+header {
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
 main {
     display: flex;
     justify-content: center;
