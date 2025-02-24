@@ -5,7 +5,6 @@ import { Liquid } from 'liquidjs';
 // Vul hier jullie team naam in
 const teamName = 'Flex';
 
-
 const app = express()
 
 app.use(express.static('public'))
@@ -22,12 +21,39 @@ const squadResponse = await fetch('https://fdnd.directus.app/items/squad?filter=
 const squadResponseJSON = await squadResponse.json()
 
 app.get('/', async function (request, response) {
+  const teamResponse = await fetch('https://fdnd.directus.app/items/person/?fields=team&filter[team][_neq]=null&groupBy=team')
+  const teamResponseJSON = await teamResponse.json()
+
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?fields=name,avatar,website,team&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=birthdate')
+  const personResponseJSON = await personResponse.json()
+
+  // maak van elk team item in de teamRepsonseJSON.data een object met team en members 
+  const teams = teamResponseJSON.data.map(teamObject => ({ 
+    teamName: teamObject.team,
+    members: []  
+  }));
+
+  // voor elk persoon uit de API
+  personResponseJSON.data.forEach(person => {
+    if (person.team) { // als persoon een team heeft
+      const matchingTeam = teams.find(teamObject => teamObject.teamName === person.team); // zoek naar een match van de team namen
+      if (matchingTeam) { // bij een match
+        matchingTeam.members.push({ // voeg dit toe aan de members array: name, avatar, website
+          name: person.name,
+          avatar: person.avatar,
+          website: person.website
+        });
+      }
+    }
+  });
+
   const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?filter={"for":"Team ${teamName}"}`)
   const messagesResponseJSON = await messagesResponse.json()
 
   response.render('index.liquid', {
     teamName: teamName,
-    messages: messagesResponseJSON.data
+    messages: messagesResponseJSON.data,
+    teams
   })
 })
 

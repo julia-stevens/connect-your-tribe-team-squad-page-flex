@@ -3,7 +3,21 @@
 {% render 'partials/header.liquid', title: 'Squad page' %}
 
 <main>
-  <h1>Zet 'm op team {{ teamName }}!</h1>
+
+ <h1>Teams</h1>
+
+{% for team in teams %}
+  <h2>{{ team.teamName }}</h2>
+  <ul>
+    {% for member in team.members %}
+      <li>{{ member.name }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+
+
+  {% comment %} <h1>Zet 'm op team {{ teamName }}!</h1>
 
   <h2>Huidige berichten</h2>
 
@@ -24,7 +38,7 @@
       <textarea name="text" required></textarea>
     </label>
     <button type="submit">Verstuur</button>
-  </form>
+  </form> {% endcomment %}
 </main>
 
 {% render 'partials/footer.liquid' %}
