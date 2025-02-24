@@ -31,15 +31,22 @@ button {
 
 .btn-primary {
     --btn-radius: .4rem;
-    --btn-padding: .2em 1em;
+    --btn-padding: .5em 1em;
     --btn-border: 2px solid;
 
     border-radius: var(--btn-radius);
+    font-size: 1.1rem;
     padding: var(--btn-padding);
     border: var(--btn-border) var(--secondary-color);
     background-color: var(--secondary-color);
     color: var(--primary-color);
     transition: .2s ease-in;
+    @media (min-width: 480px) {
+        font-size: 1.4rem;
+    }
+    @media (min-width: 768px) {
+        font-size: 1.6rem;
+    }
 }
 
 .btn-primary:hover {
