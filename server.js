@@ -24,7 +24,7 @@ app.get('/', async function (request, response) {
   const teamResponse = await fetch('https://fdnd.directus.app/items/person/?fields=team&filter[team][_neq]=null&groupBy=team')
   const teamResponseJSON = await teamResponse.json()
 
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?fields=name,avatar,website,team&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=birthdate')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?fields=name,avatar,website,team,id&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=birthdate')
   const personResponseJSON = await personResponse.json()
 
   // maak van elk team item in de teamRepsonseJSON.data een object met team en members 
@@ -41,11 +41,14 @@ app.get('/', async function (request, response) {
         matchingTeam.members.push({ // voeg dit toe aan de members array: name, avatar, website
           name: person.name,
           avatar: person.avatar,
-          website: person.website
+          website: person.website,
+          id: person.id
         });
       }
     }
   });
+
+  // console.log(JSON.stringify(teams));
 
   const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?filter={"for":"Team ${teamName}"}`)
   const messagesResponseJSON = await messagesResponse.json()

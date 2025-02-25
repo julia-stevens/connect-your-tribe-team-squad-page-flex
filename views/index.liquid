@@ -2,18 +2,68 @@
 
 {% render 'partials/header.liquid', title: 'Squad page' %}
 
-<main>
+<aside>
+{% render 'partials/choosebtn.liquid', title: 'Choose Button' %}
+</aside>
 
- <h1>Teams</h1>
+<main class="main-index">
+  <h1>Bekijk hier alle teams</h1>
 
-{% for team in teams %}
+  <section class="teams">
+    {% for team in teams %}
+      <article class="team-card">
+        <h2>Team <strong>{{ team.teamName }}</strong></h2>
+
+        <div class="card-info">
+          <p><a href="">Link naar live site</a></p>
+          <p><a href="">Link naar repo</a></p>
+          <p class="rating"><em>Cijfer</em></p>
+        </div>
+
+        <form method="POST" action="/">
+          <h3>Rating</h3>
+          <label> Beoordeel de squadpage van Team {{ team.teamName }}
+            <div class="input-output">
+              <input type="range" name="ratingInput" min="1" max="10" step="1" value="6" oninput="amount.value=ratingInput.value">
+              <output id="amount" name="amount" for="ratingInput">6</output>
+            </div>
+          </label>
+          <button type="submit" class="btn-primary small">Verstuur</button>
+        </form>
+
+        <div class="members">
+          <h3>Leden</h3>
+          <div class="members-list">
+            {% for member in team.members %}
+              <a href="/student/{{ member.id }}">
+                <figure>
+                  <img src="{{ member.avatar }}" onerror="this.src='assets/altperson.png'" alt="Afbeelding van student" width="30px">
+                  <figcaption>{{ member.name }}</figcaption>
+                </figure>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </section> 
+
+
+
+
+
+
+
+ 
+
+{% comment %} {% for team in teams %}
   <h2>{{ team.teamName }}</h2>
   <ul>
     {% for member in team.members %}
       <li>{{ member.name }}</li>
     {% endfor %}
   </ul>
-{% endfor %}
+{% endfor %} {% endcomment %}
 
 
 
