@@ -22,17 +22,17 @@
           {% endfor %}
         </div>
 
-        <form method="post" action="/">
-          <h3>Rating</h3>
-          <label for="ratingInput"> Beoordeel de squadpage van Team {{ team.teamName }}
-            <div class="input-output">
-              {% comment %} <input type="hidden" name="teamName" value="{{ team.teamName }}"> {% endcomment %}
-              <input type="range" id="ratingInput" name="ratingInput" min="1" max="10" step="1" value="6">
-              <output id="amount" name="amount" for="ratingInput">6</output>
-            </div>
-          </label>
-          <button type="submit" class="btn-small">Verstuur</button>
-        </form>
+          <form method="post" action="/">
+            <h3>Rating</h3>
+            <label for="ratingInput"> Beoordeel de squadpage van Team {{ team.teamName }}
+              <div class="input-output">
+                <input type="hidden" name="teamID" value="{{ team.teamName }}">
+                <input type="range" id="ratingInput" name="ratingInput" min="1" max="10" step="1" value="6">
+                <output id="amount" name="amount" for="ratingInput">6</output>
+              </div>
+            </label>
+            <button type="submit" class="btn-small">Verstuur</button>
+          </form>
 
         <div class="members">
           <h3>Leden</h3>

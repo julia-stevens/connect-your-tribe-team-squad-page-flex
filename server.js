@@ -51,8 +51,8 @@ app.get('/', async function (request, response) {
   // console.log(JSON.stringify(teams));
 
   // const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?filter={"for":"Team ${teamName}"}`)
-  const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?sort=-created&limit=1`)
-  const messagesResponseJSON = await messagesResponse.json()
+    const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?sort=-created&limit=1`)
+    const messagesResponseJSON = await messagesResponse.json()
 
   response.render('index.liquid', {
     // teamName: teamName,
@@ -61,22 +61,22 @@ app.get('/', async function (request, response) {
   })
 })
 
-app.post('/', async function (request, response) {
-  await fetch('https://fdnd.directus.app/items/messages/?sort=-created&limit=1', {
-    method: 'POST',
-    body: JSON.stringify({
-      // for: teamName,
-      // from: request.body.from,
-      // text: request.body.text
-      text: request.body.ratingInput
-    }),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  });
+  app.post('/', async function (request, response) {
+    await fetch('https://fdnd.directus.app/items/messages/?sort=-created&limit=1', {
+      method: 'POST',
+      body: JSON.stringify({
+        for: request.body.teamID,
+        // from: request.body.from,
+        // text: request.body.text
+        text: request.body.ratingInput
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    });
 
-  response.redirect(303, '/')
-})
+    response.redirect(303, '/')
+  })
 
 app.get('/studenten', async function (request, response) {
   let personResponseJSON
