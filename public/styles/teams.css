@@ -87,10 +87,25 @@
 
                 button {
                     display: block; 
+                }
 
-                    &.small {
-                        font-size: 1rem;
-                    }
+                .btn-small {
+                    --btn-radius: .4rem;
+                    --btn-padding: .5em 1em;
+                    --btn-border: 2px solid;
+                
+                    border-radius: var(--btn-radius);
+                    font-size: 1rem;
+                    padding: var(--btn-padding);
+                    border: var(--btn-border) var(--secondary-color);
+                    background-color: var(--secondary-color);
+                    color: var(--primary-color);
+                    transition: .2s ease-in;
+                }
+                
+                .btn-small:hover {
+                    background-color: var(--primary-color);
+                    color: var(--secondary-color);
                 }
             }
 
