@@ -1,3 +1,11 @@
+aside {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin: 4vh 0 4vh 0;
+}
+
 .main-students {
     display: flex;
     justify-content: center;
