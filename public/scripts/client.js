@@ -1,8 +1,10 @@
-const ratingInput = document.getElementById("ratingInput")
-const amount = document.getElementById("amount")
+const inputOutputs = document.querySelectorAll(".input-output")
 
-ratingInput.addEventListener("input", changeOutputValue)
+inputOutputs.forEach(inputOutput => {
+    const input = inputOutput.querySelector("#ratingInput")
+    const output = inputOutput.querySelector("#amount")
 
-function changeOutputValue() {
-    amount.value = ratingInput.value;
-}
+    input.addEventListener("input", () => {
+        output.value = input.value
+    })
+})
