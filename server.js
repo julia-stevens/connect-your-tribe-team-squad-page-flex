@@ -62,15 +62,13 @@ app.get('/', async function (request, response) {
 })
 
 app.post('/', async function (request, response) {
-  const { teamName, ratingInput } = request.body;
-
   await fetch('https://fdnd.directus.app/items/messages/?sort=-created&limit=1', {
     method: 'POST',
     body: JSON.stringify({
-      for: teamName,
+      // for: teamName,
       // from: request.body.from,
       // text: request.body.text
-      text: ratingInput
+      text: request.body.ratingInput
     }),
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
