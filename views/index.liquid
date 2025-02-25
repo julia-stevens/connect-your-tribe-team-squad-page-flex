@@ -17,18 +17,21 @@
         <div class="card-info">
           <p><a href="">Link naar live site</a></p>
           <p><a href="">Link naar repo</a></p>
-          <p class="rating"><em>Cijfer</em></p>
+          {% for message in messages %}
+            <p class="rating"><em>{{ message.text }}</em></p>
+          {% endfor %}
         </div>
 
-        <form method="POST" action="/">
+        <form method="post" action="/">
           <h3>Rating</h3>
-          <label> Beoordeel de squadpage van Team {{ team.teamName }}
+          <label for="ratingInput"> Beoordeel de squadpage van Team {{ team.teamName }}
             <div class="input-output">
+              {% comment %} <input type="hidden" name="teamName" value="{{ team.teamName }}"> {% endcomment %}
               <input type="range" id="ratingInput" name="ratingInput" min="1" max="10" step="1" value="6">
               <output id="amount" name="amount" for="ratingInput">6</output>
             </div>
           </label>
-          <button type="submit" class="btn-primary small">Verstuur</button>
+          <button type="submit" class="btn-small">Verstuur</button>
         </form>
 
         <div class="members">
@@ -56,14 +59,7 @@
 
  
 
-{% comment %} {% for team in teams %}
-  <h2>{{ team.teamName }}</h2>
-  <ul>
-    {% for member in team.members %}
-      <li>{{ member.name }}</li>
-    {% endfor %}
-  </ul>
-{% endfor %} {% endcomment %}
+
 
 
 
