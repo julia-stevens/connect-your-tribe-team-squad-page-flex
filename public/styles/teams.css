@@ -1,0 +1,128 @@
+.main-index {
+    /* Flex parent */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+
+    .teams {
+        padding: 2rem 3rem;
+        /* FLEX parent */
+        display: flex; 
+        flex-direction: column;
+        gap: 4.5rem;
+
+        .team-card {
+            position: relative; 
+            background-color: var(--primary-color);
+            padding: 1.5em;
+            border-radius: 5px;
+            border: var(--secondary-color) 1px solid;
+            box-shadow: -5px 5px 1px var(--secondary-color);
+            /* FLEX parent */
+            display: flex; 
+            flex-direction: column;
+            align-items: start;
+            gap: 1em;
+            /* container: card-grid; */
+
+            strong {
+                color: var(--tertiary-color);
+            }
+
+            h3 {
+                padding-bottom: .5em;
+            }
+
+            .card-info {
+                a {
+                    color: var(--highlight-color);
+                    transition: .2s ease-in;
+
+                    &:hover {
+                        color: var(--secondary-color);
+                    }
+                }
+
+                p:first-of-type {
+                    padding-bottom: .5em;
+                }
+
+                .rating {
+                    background-color: var(--tertiary-color);
+                    color: var(--primary-color);
+                    width: 5em;
+                    height: 5em;
+                    border-radius: 50%;
+                    position: absolute; 
+                    top: 0; 
+                    right: 0; 
+                    translate: 50% -50%;
+                    /* GRID parent */
+                    display: grid; 
+                    place-items: center;
+                }
+            }
+
+            form {
+                .input-output {
+                    display: block; 
+                    padding: .5em 0;
+
+                    display: flex; 
+                    align-items: center;
+                    gap: .5em;
+
+                    input[type="range"] {
+                        accent-color: var(--highlight-color);
+                        cursor: pointer;
+                    }
+
+                    output {
+                        color: var(--tertiary-color);
+                    }
+                }
+
+                button {
+                    display: block; 
+
+                    &.small {
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .members {
+                .members-list {
+                    /* FLEX parent */
+                    display: flex; 
+                    flex-wrap: wrap;
+                    gap: 1rem;
+
+                    figure {
+                        /* FLEX parent */
+                        display: flex; 
+                        flex-direction: column;
+                        align-items: center;
+    
+                        width: fit-content;
+                        padding: 1em 1em .5em 1em;
+                        border-radius: 5px;
+                        border: var(--secondary-color) 1px solid;
+    
+                        img {
+                            width: 8rem;
+                            height: 8rem;
+                            object-fit: cover;
+                        }
+    
+                        figcaption {
+                            padding-top: .5em;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+

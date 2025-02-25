@@ -9,6 +9,7 @@
 body {
     --primary-color: #050542;
     --secondary-color: #66e5bf;
+    --tertiary-color: #fefc86;
     --highlight-color: #A675F4;
     --text-color: white; 
     --section-radius: 1.5rem;
@@ -27,6 +28,11 @@ main {
 
 button {
     cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .btn-primary {
