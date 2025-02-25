@@ -3,7 +3,7 @@ header {
     color: var(--primary-color);
     border-radius: 0 0 var(--section-radius) var(--section-radius);
     padding: var(--section-padding);
-    position: fixed; 
+    position: sticky; 
     width: 100%;
     top: 0;
 
