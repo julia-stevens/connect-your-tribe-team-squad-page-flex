@@ -1,17 +1,20 @@
 .container {
     display: flex;
-    height: 90vh;
     align-items: center;
     justify-content: center;
     gap: 40px;
     padding: 5vh 10vw;
+    border: #66e5bf 1px solid;
+    box-shadow: -5px 5px 1px #66e5bf;
+    border-radius: 5px;
+    max-width: 100vh;
 }
 
 .left, .right {
     padding: 30px;
-    border: #66e5bf 1px solid;
+    /* border: #66e5bf 1px solid;
     box-shadow: -5px 5px 1px #66e5bf;
-    border-radius: 5px;
+    border-radius: 5px; */
 }
 
 .left {
@@ -31,9 +34,8 @@
     max-width: 500px;
 }
 
-img {
-    max-width: 100%;
+.profile-image {
+    max-width: 80%;
     height: auto;
     display: block;
-    border-radius: 10px;
 }

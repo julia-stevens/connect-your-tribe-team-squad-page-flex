@@ -9,33 +9,26 @@
 
 <main class="container">
     <section class="left">
-        <p class="persoon-naam">{{ person.name }}Naam</p>
-        {% if person.avatar == null %}
-            <img class="profile-image" src="assets/altperson.png" alt="Profile image">
-        
-        {%elsif person.avatar == ""%}
-            <img class="profile-image" src="assets/altperson.png" alt="Profile image">
-
+        <p class="persoon-naam">{{ person.name }}</p>
+        {% if person.avatar == null or person.avatar == "" or person.avatar == undefined %}
+            <img class="profile-image" src="/assets/altperson.png" alt="Profile image">
         {% else %}
-            <img class="profile-image" src="{{ person.avatar }}" alt="profile image">
-
-        {%endif%}
+            <img class="profile-image" src="{{ person.avatar }}" alt="Profile image">
+        {% endif %}
     </section>
 
     <section class="right">
-        <p>
-            {{ person.birthdate }}
-    
+        <p>   
             {% assign birth_timestamp = person.birthdate | date: '%s' | default: 0 %}
             {% assign now_timestamp = 'now' | date: '%s' %}
             {% assign age = now_timestamp | minus: birth_timestamp | divided_by: 31556952 | floor %}
-            leeftijd: {{ age }}
+            leeftijd: {{ age }}👤
     
         </p>
-        <p>Github handle: {{ person.github_handle }}</p>
-        <p>Github Link:</p>
-        <p>Bijnaam: {{ person.nickname }}</p>
-        <p>Favoriete property: {{ person.fav_property }}</p>
+        <p>Github handle: {{ person.github_handle }}🤓</p>
+        <p>Github Link:👈</p>
+        <p>Bijnaam: {{ person.nickname }}🤪</p>
+        <p>Favoriete property: {{ person.fav_property }}❤️</p>
     </section>
     
 </main>
