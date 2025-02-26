@@ -71,6 +71,8 @@ app.get('/', async function (request, response) {
 
     team.rating = rating.toFixed(1);
   })
+
+  // sort ratings highest to lowest
   teams = teams.sort((a, b) => b.rating - a.rating);
 
   response.render('index.liquid', {
