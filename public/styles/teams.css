@@ -6,10 +6,13 @@
 
     .teams {
         padding: 2rem 3rem;
+        width: 70vw;
+        max-width: 70rem;
         /* FLEX parent */
         display: flex; 
         flex-direction: column;
-        gap: 4.5rem;
+        gap: 4.5rem;    
+        container: card-grid / inline-size;
 
         .team-card {
             position: relative; 
@@ -18,12 +21,12 @@
             border-radius: 5px;
             border: var(--secondary-color) 1px solid;
             box-shadow: -5px 5px 1px var(--secondary-color);
+            width: 100%;
             /* FLEX parent */
             display: flex; 
             flex-direction: column;
             align-items: start;
             gap: 1em;
-            /* container: card-grid; */
 
             strong {
                 color: var(--tertiary-color);
@@ -84,10 +87,25 @@
 
                 button {
                     display: block; 
+                }
 
-                    &.small {
-                        font-size: 1rem;
-                    }
+                .btn-small {
+                    --btn-radius: .4rem;
+                    --btn-padding: .5em 1em;
+                    --btn-border: 2px solid;
+                
+                    border-radius: var(--btn-radius);
+                    font-size: 1rem;
+                    padding: var(--btn-padding);
+                    border: var(--btn-border) var(--secondary-color);
+                    background-color: var(--secondary-color);
+                    color: var(--primary-color);
+                    transition: .2s ease-in;
+                }
+                
+                .btn-small:hover {
+                    background-color: var(--primary-color);
+                    color: var(--secondary-color);
                 }
             }
 
@@ -121,6 +139,33 @@
                     }
                 }
 
+            }
+        }
+
+        @container card-grid (width > 56rem) {
+            .team-card {
+                display: grid !important; 
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+
+                h2, .card-info {
+                    grid-column: 1/2;
+                    grid-row: 1/2;
+                }
+
+                .card-info {
+                    align-self: center;
+                }
+
+                form {
+                    grid-column: 2/3;
+                    grid-row: 1/2;
+                }
+
+                .members {
+                    grid-column: 1/-1;
+                    grid-row: 2/3;
+                }
             }
         }
     }
