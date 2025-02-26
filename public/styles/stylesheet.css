@@ -60,6 +60,11 @@ a {
     color: var(--secondary-color);
 }
 
+.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
 .student-card {
     display: flex;
     flex-direction: column;
