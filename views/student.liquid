@@ -9,19 +9,9 @@
 
 <main class="container">
     <section class="left">
-<<<<<<< Updated upstream
         <p class="persoon-naam">{{ person.name }}</p>
         {% if person.avatar == null or person.avatar == "" or person.avatar == undefined %}
             <img class="profile-image" src="/assets/altperson.png" alt="Profile image">
-=======
-        <p class="persoon-naam">{{ person.name }}Naam👤</p>
-        {% if person.avatar == null %}
-            <img class="profile-image" src="assets/altperson.png" alt="Profile image">
-        
-        {%elsif person.avatar == ""%}
-            <img class="profile-image" src="assets/altperson.png" alt="Profile image">
-
->>>>>>> Stashed changes
         {% else %}
             <img class="profile-image" src="{{ person.avatar }}" alt="Profile image">
         {% endif %}
