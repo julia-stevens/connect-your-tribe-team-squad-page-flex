@@ -21,6 +21,7 @@ const squadResponse = await fetch('https://fdnd.directus.app/items/squad?filter=
 const squadResponseJSON = await squadResponse.json()
 
 app.get('/', async function (request, response) {
+  
   const teamResponse = await fetch('https://fdnd.directus.app/items/person/?fields=team&filter[team][_neq]=null&groupBy=team')
   const teamResponseJSON = await teamResponse.json()
 
