@@ -18,9 +18,7 @@
     </section>
 
     <section class="right">
-        <p>
-            {{ person.birthdate }}
-    
+        <p>   
             {% assign birth_timestamp = person.birthdate | date: '%s' | default: 0 %}
             {% assign now_timestamp = 'now' | date: '%s' %}
             {% assign age = now_timestamp | minus: birth_timestamp | divided_by: 31556952 | floor %}
