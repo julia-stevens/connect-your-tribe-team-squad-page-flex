@@ -79,6 +79,14 @@ app.get('/studenten', async function (request, response) {
   response.render('studenten.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
 })
 
+app.get('/student', async function (request, response) {
+  const personResponse = await fetch ('https://fdnd.directus.app/items/person/?fields=avatar,name,birthdate,nickname,fav_property&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D')
+  // En haal daarvan de JSON op
+  const personResponseJSON = await personResponse.json()
+
+  response.render('student.liquid', { persons: personResponseJSON.data })
+})
+
 app.post('/', async function (request, response) {
   await fetch('https://fdnd.directus.app/items/messages/', {
     method: 'POST',
