@@ -124,6 +124,16 @@ app.get('/student', async function (request, response) {
   response.render('student.liquid', { persons: personResponseJSON.data })
 })
 
+app.get('/student/:id', async function (request, response) {
+  const personId = request.params.id;
+  
+  const personIdResponse = await fetch(`https://fdnd.directus.app/items/person/${personId}?fields=name,id,avatar,birthdate,nickname,fav_property,github_handle`);
+  const personIdResponseJSON = await personIdResponse.json();
+  
+  response.render('student.liquid', { person: personIdResponseJSON.data });
+});
+
+
 app.post('/', async function (request, response) {
   await fetch('https://fdnd.directus.app/items/messages/', {
     method: 'POST',
