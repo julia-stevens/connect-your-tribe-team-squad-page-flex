@@ -24,13 +24,13 @@
             {% assign birth_timestamp = person.birthdate | date: '%s' | default: 0 %}
             {% assign now_timestamp = 'now' | date: '%s' %}
             {% assign age = now_timestamp | minus: birth_timestamp | divided_by: 31556952 | floor %}
-            leeftijd: {{ age }}
+            leeftijd: {{ age }}👤
     
         </p>
-        <p>Github handle: {{ person.github_handle }}</p>
-        <p>Github Link:</p>
-        <p>Bijnaam: {{ person.nickname }}</p>
-        <p>Favoriete property: {{ person.fav_property }}</p>
+        <p>Github handle: {{ person.github_handle }}🤓</p>
+        <p>Github Link:👈</p>
+        <p>Bijnaam: {{ person.nickname }}🤪</p>
+        <p>Favoriete property: {{ person.fav_property }}❤️</p>
     </section>
     
 </main>
