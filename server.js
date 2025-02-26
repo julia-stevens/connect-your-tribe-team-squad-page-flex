@@ -66,7 +66,7 @@ app.get('/', async function (request, response) {
   let teams = teamResponseJSON.data.map(teamObject => ({
     teamName: teamObject.team,
     members: [],
-    linkSite: teamLinksSite[teamLinksRepo.team],
+    linkSite: teamLinksSite[teamObject.team],
     linkRepo: teamLinksRepo[teamObject.team]
   }));
 
