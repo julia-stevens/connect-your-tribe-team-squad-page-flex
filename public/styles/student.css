@@ -3,16 +3,21 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
-    padding: 5vh 10vw;
+    padding: 4vh 10vw;
     border: #66e5bf 1px solid;
     box-shadow: -5px 5px 1px #66e5bf;
     border-radius: 5px;
-    max-width: 100vh;
+    max-width: 75vw;
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-height: 80%;
+    
+    @media (max-width: 855px) {
+        flex-direction: column;
+        text-align: center;
+        }
 }
 
 .left, .right {
@@ -24,9 +29,17 @@
     width: 30%;
     min-width: 30vw;
     height: 60vh;
+    
+    @media (max-width: 855px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 }
 
-.persoon-naam {
+.person-name {
     display: inline-block;
     font-size: 32px;
 }
@@ -37,15 +50,22 @@
     justify-content: space-evenly;
     align-items: start;
     width: 60%;
-    min-width: 20vw;
+    min-width: 35vw;
     height: 60vh;
+    @media (max-width: 855px) {
+        min-width: 280px;
+
+    }
 }
 
 .profile-image {
     max-width: 100%;
     height: auto;
     display: block;
-}
+    @media (max-width: 855px) {
+        width: 25vw;
+        min-width: 180px;
+}}
 
 a {
     color: var(--highlight-color);
@@ -55,9 +75,3 @@ a {
     }
 }
 
-@media (max-width: 855px) {
-    .container {
-        flex-direction: column;
-        text-align: center;
-    }
-}
