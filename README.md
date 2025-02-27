@@ -36,13 +36,13 @@ Ook is op deze pagina een link te vinden naar het github profiel van deze studen
 Bij de studenten page krijg je een overzicht van alle studenten. Je kan er voor kiezen om te sorteren op naam (a-z), op naam (z-a) of op leeftijd. Je krijgt de {{person.avatar}} te zien, die zij zelf in de database hebben ingevuld, de naam en daaronder wat extra informatie over die student. 
 
 
-**Styling**
+### **Styling**
 
 Voor de styling heb ik gebruik gemaakt van de FDND styling. De kleuren, shadow op de cards en de borders komen allemaal uit de FDND huisstijl.
 
 De students cards zijn allemaal lists die in een grid getoond worden. Deze grid is vanuit een mobile first principe gebouwd. Op de mobile versie zie je de 1-column-layout die ervoor zorgt dat iedereen onder elkaar staat. Hoe breder het scherm hoe meer rijen er komen. Op desktop zijn dat er uiteindelijk 3.
 
-**Functionaliteit**
+### **Functionaliteit**
 
 Als iemand geen foto heeft ingevuld bij de {{person.avatar}} uit de database, dan word deze opgevuld met een zwart poppetje, dat zorgt ervoor dat de pagina er mooi blijft uitzien en iedereen toch juist word getoond.
 
