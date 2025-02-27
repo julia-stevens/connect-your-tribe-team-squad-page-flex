@@ -20,7 +20,7 @@ const squadResponse = await fetch('https://fdnd.directus.app/items/squad?filter=
 
 const squadResponseJSON = await squadResponse.json()
 
-let teamLinksRepo = {
+const teamLinksRepo = {
   Awesome:"https://github.com/misspastelwitch/connect-your-tribe-team-squad-page",
   Blaze:"https://github.com/Mikiyas-hs/connect-your-tribe-team-squad-page",
   Chill:"https://github.com/KyanTG/connect-your-tribe-team-squad-page",
@@ -37,7 +37,7 @@ let teamLinksRepo = {
   Zen:"https://github.com/Ravirkt/connect-your-tribe-team-squad-page"
 }
 
-let teamLinksSite = {
+const teamLinksSite = {
   Awesome:"https://connect-your-tribe-team-squad-page.onrender.com/",
   Blaze:"",
   Chill:"https://connect-your-tribe-team-squad-page-9ofu.onrender.com/",
