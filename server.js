@@ -43,7 +43,7 @@ let teamLinksSite = {
   Chill:"",
   Cool:"",
   Epic:"",
-  Flex:"",
+  Flex:"https://connect-your-tribe-team-squad-page-flex.onrender.com",
   Flux:"",
   Hype:"",
   Peak:"",
