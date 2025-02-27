@@ -83,6 +83,9 @@ details[open] {
         text-decoration: none;
         text-align: center;
         margin-top: 4vh;
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 
     & span {
@@ -100,6 +103,9 @@ details[open] {
             height: 20px;
             margin-right: 1vw;
             cursor: pointer;
+            &:hover {
+                transform: scale(1.2);
+            }
         }
     }
 }
