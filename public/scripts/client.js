@@ -18,15 +18,17 @@ document.addEventListener("DOMContentLoaded", function () {
         let dataOptions = [
           { key: "birthdate", label: "Geboortedatum" },
           { key: "fav_color", label: "Favoriete kleur" },
-          { key: "most_energy", label: "Meeste energie in de" },
+          { key: "most_energy", label: "Meeste energie in" }
         ];
 
-
+        let currentText = infoText.textContent;
+        let currentIndex = dataOptions.findIndex(option => currentText.startsWith(option.label));
   
-        let randomOption = dataOptions[Math.floor(Math.random() * dataOptions.length)];
-        let newValue = li.dataset[randomOption.key];
+        let nextIndex = (currentIndex + 1) % dataOptions.length;
+        let nextOption = dataOptions[nextIndex];
+        let newValue = li.dataset[nextOption.key];
   
-        infoText.textContent = `${randomOption.label}: ${newValue}`;
+        infoText.textContent = `${nextOption.label}: ${newValue}`;
       });
     });
   });
