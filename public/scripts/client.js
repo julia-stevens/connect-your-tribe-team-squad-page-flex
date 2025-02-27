@@ -1,13 +1,18 @@
-const inputOutputs = document.querySelectorAll(".input-output")
+document.addEventListener("DOMContentLoaded", () => {
+  const inputOutputs = document.querySelectorAll(".input-output");
 
-inputOutputs.forEach(inputOutput => {
-    const input = inputOutput.querySelector("#ratingInput")
-    const output = inputOutput.querySelector("#amount")
+  inputOutputs.forEach(inputOutput => {
+      const input = inputOutput.querySelector("input[type='range']");
+      const output = inputOutput.querySelector("output");
 
-    input.addEventListener("input", () => {
-        output.value = input.value
-    })
-})
+      if (input && output) {
+          input.addEventListener("input", () => {
+              output.textContent = input.value; 
+          });
+      }
+  });
+});
+
 
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".refresh-btn").forEach(btn => {

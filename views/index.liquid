@@ -22,13 +22,12 @@
 
         <form method="post" action="/">
           <h3>Rating</h3>
-          <label for="ratingInput"> Beoordeel de squadpage van Team {{ team.teamName }}
-            <div class="input-output">
+          <label for="ratingInput" class="input-output"> Beoordeel de squadpage van Team {{ team.teamName }}</label>
+          <div class="input-output">
               <input type="hidden" name="teamID" value="Team Flex / Rating for Team {{ team.teamName }}">
               <input type="range" id="ratingInput" name="ratingInput" min="1" max="10" step="1" value="{{ team.rating  }}">
-              <output id="amount" name="amount" for="ratingInput">{{ team.rating  }}</output>
-            </div>
-          </label>
+              <output id="amountOutput" for="ratingInput">{{ team.rating  }}</output>
+          </div>
           <button type="submit" class="btn-small">Verstuur</button>
         </form>
 
@@ -38,7 +37,7 @@
             {% for member in team.members %}
               <a href="/student/{{ member.id }}">
                 <figure>
-                  <img src="{{ member.avatar }}" onerror="this.src='assets/altperson.png'" alt="Afbeelding van student" width="30px">
+                  <img src="{{ member.avatar }}" onerror="this.src='assets/altperson.png'" alt="Afbeelding van student" width="30">
                   <figcaption>{{ member.name }}</figcaption>
                 </figure>
               </a>
@@ -48,29 +47,6 @@
       </article>
     {% endfor %}
   </section> 
-
-  {% comment %} <h1>Zet 'm op team {{ teamName }}!</h1>
-
-  <h2>Huidige berichten</h2>
-
-  {% for message in messages %}
-  <p>{{ message.from }}: {{ message.text }} @{{ message.created | date: '%d-%m-%Y %H:%M' }}</p>
-  {% else %}
-  <p>Er zijn nog geen berichten voor dit team.</p>
-  {% endfor %}
-
-  <h2>Voeg een bericht toe</h2>
-  <form method="post" action="/">
-    <label>
-      Naam:
-      <input type="text" name="from" required>
-    </label>
-    <label>
-      Bericht:
-      <textarea name="text" required></textarea>
-    </label>
-    <button type="submit">Verstuur</button>
-  </form> {% endcomment %}
 </main>
 
 {% render 'partials/footer.liquid' %}
