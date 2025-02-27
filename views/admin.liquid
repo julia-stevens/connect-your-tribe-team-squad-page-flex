@@ -1,0 +1,12 @@
+{% render 'partials/head.liquid' %}
+
+{% render 'partials/header.liquid', title: 'Squad page' %}
+
+<main class="main-admin">
+    <h1>Admin pagina voor Team Flex</h1>
+    <form method="post" action="/admin">
+        <button type="submit" name="deleteRatings" class="btn-primary">Verwijder ratings</button>
+    </form>
+</main>
+
+{% render 'partials/footer.liquid' %}

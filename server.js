@@ -55,7 +55,6 @@ let teamLinksSite = {
 }
 
 app.get('/', async function (request, response) {
-
   const teamResponse = await fetch('https://fdnd.directus.app/items/person/?fields=team&filter[team][_neq]=null&groupBy=team')
   const teamResponseJSON = await teamResponse.json()
 
@@ -107,7 +106,7 @@ app.get('/', async function (request, response) {
   // sort ratings highest to lowest
   teams = teams.sort((a, b) => b.rating - a.rating);
 
-  console.log(teams)
+  // console.log(teams)
 
   response.render('index.liquid', {
     // teamName: teamName,
@@ -134,7 +133,7 @@ app.post('/', async function (request, response) {
 app.get('/studenten', async function (request, response) {
   let personResponseJSON
 
-  let personURL = await fetch('https://fdnd.directus.app/items/person/?fields=*,squads.squad_id.name,squads.squad_id.cohort&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=name')
+  // let personURL = await fetch('https://fdnd.directus.app/items/person/?fields=*,squads.squad_id.name,squads.squad_id.cohort&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=name')
 
   if (request.query.sort == 'za'){
     const personResponse = await fetch('https://fdnd.directus.app/items/person/?fields=*,squads.squad_id.name,squads.squad_id.cohort&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=-name')
@@ -167,22 +166,23 @@ app.get('/student/:id', async function (request, response) {
   response.render('student.liquid', { person: personIdResponseJSON.data });
 });
 
+app.get('/admin', async function (request, response){
+  response.render('admin.liquid')
+})
 
-// app.post('/', async function (request, response) {
-//   await fetch('https://fdnd.directus.app/items/messages/', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       for: `Team ${teamName}`,
-//       from: request.body.from,
-//       text: request.body.text
-//     }),
-//     headers: {
-//       'Content-Type': 'application/json;charset=UTF-8'
-//     }
-//   });
+app.post('/admin', async function (request, response) {
+    const getMessages = await fetch('https://fdnd.directus.app/items/messages/?filter[for][_starts_with]=Team%20Flex%20%2F%20Rating%20for');
+    const getMessagesJSON = await getMessages.json(); 
 
-//   response.redirect(303, '/')
-// })
+    if (getMessagesJSON.data && getMessagesJSON.data.length > 0) {
+      for (const message of getMessagesJSON.data) {
+        await fetch(`https://fdnd.directus.app/items/messages/${message.id}`, {
+          method: 'DELETE',
+        });
+      }
+    }
+    response.redirect(303, '/');
+});
 
 app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {
