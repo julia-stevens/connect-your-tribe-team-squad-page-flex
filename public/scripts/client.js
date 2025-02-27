@@ -7,11 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (input && output) {
           input.addEventListener("input", () => {
-              output.textContent = input.value; 
+              output.textContent = input.value; // 
           });
       }
   });
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
