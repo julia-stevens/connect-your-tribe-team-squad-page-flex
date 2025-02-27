@@ -4,7 +4,7 @@
 Ontwerp en maak samen met je team een website met NodeJS, Express, JSON en Liquid
 
 ### Resultaat
-[Bezoek hier onze squadpage]()
+[Bezoek hier onze squadpage](https://connect-your-tribe-team-squad-page-flex.onrender.com/)
 
 <img src="https://github.com/user-attachments/assets/dba1fdb9-caeb-490c-838a-72c6945a2b2a" width="400">
 <img src="https://github.com/user-attachments/assets/18d39fc7-f8fa-48d9-a1ba-e72a0eee768f" width="400">
