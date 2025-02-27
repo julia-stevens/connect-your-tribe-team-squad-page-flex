@@ -28,20 +28,24 @@ Ook is op deze pagina een link te vinden naar het github profiel van deze studen
 
 ### **Matthijs**
 Bij de studenten page krijg je een overzicht van alle studenten. Je kan er voor kiezen om te sorteren op naam (a-z), op naam (z-a) of op leeftijd. Je krijgt de {{person.avatar}} te zien, die zij zelf in de database hebben ingevuld, de naam en daaronder wat extra informatie over die student. 
-<img src="![image](https://github.com/user-attachments/assets/e8a3f358-843f-449f-8876-dabd75217ed2)" width="600">
+
+<img src="https://github.com/user-attachments/assets/bf3a7748-c196-4ed5-a878-560afb7f0a61" width="350">
 
 #### Styling
 Voor de styling heb ik gebruik gemaakt van de FDND styling. De kleuren, shadow op de cards en de borders komen allemaal uit de FDND huisstijl.
 
 De students cards zijn allemaal lists die in een grid getoond worden. Deze grid is vanuit een mobile first principe gebouwd. Op de mobile versie zie je de 1-column-layout die ervoor zorgt dat iedereen onder elkaar staat. Hoe breder het scherm hoe meer rijen er komen. Op desktop zijn dat er uiteindelijk 3.
-<img src="![image](https://github.com/user-attachments/assets/38f68ecf-7a39-4016-8020-6681d438113c)" width="400">
-<img src="![image](https://github.com/user-attachments/assets/81d1f557-5020-4c2f-a9b5-f17ba5d8bbd8)" width="600">
+
+<img src="https://github.com/user-attachments/assets/38f68ecf-7a39-4016-8020-6681d438113c" width="300">
+<img src="https://github.com/user-attachments/assets/81d1f557-5020-4c2f-a9b5-f17ba5d8bbd8" width="700" height="400">
 
 
 #### Functionaliteit
 Als iemand geen foto heeft ingevuld bij de {{person.avatar}} uit de database, dan word deze opgevuld met een zwart poppetje, dat zorgt ervoor dat de pagina er mooi blijft uitzien en iedereen toch juist word getoond.
 
 Als je wat meer informatie wilt over een student, kan je op de "refresh knop" klikken en krijg je weer een ander stukje informatie over hem/haar. Deze knop staat duidelijk naast de al voorgeplaatste geboortedatum van alle leerlingen. Als je er overheen hovert wordt die ook iets groter en word je muis een pointer. Dit om te laten zien dat de knop gebruikt mag worden. 
+
+https://github.com/user-attachments/assets/53be12de-e1d5-497f-bf0a-60f1e15890e0
 
 Als je echt wat meer informatie wilt, klik dan op zijn/haar naam en dan kom je uit bij een detailpagina die precies die student die jij aanklikt toont. Ook bij de naam als je er over heen hovert wordt die weer iets groter en krijgt je muis een pointer.
 Als je wilt kun je ook weer via de button terug naar de teampagina en andersom!
