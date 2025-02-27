@@ -77,14 +77,16 @@ details[open] {
     }
 
     & a {
-        color: white;
+        color: var(--secondary-color);
         font-size: 1.3rem;
         font-weight: 600;
         text-decoration: none;
         text-align: center;
         margin-top: 4vh;
+        transition: .2s ease-in;
+
         &:hover {
-            transform: scale(1.2);
+            color: var(--highlight-color);
         }
     }
 
