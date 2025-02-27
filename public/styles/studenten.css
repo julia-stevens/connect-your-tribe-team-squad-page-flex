@@ -11,7 +11,7 @@ details {
     background: var(--tertiary-color);
     color: black;
     border-radius: 5px;
-    padding: 2vw;
+    padding: 1em;
 }
 
 details[open] {
