@@ -47,6 +47,14 @@
     display: block;
 }
 
+a {
+    color: var(--highlight-color);
+    transition: .2s ease-in;
+    &:hover {
+        color: var( --secondary-color);
+    }
+}
+
 @media (max-width: 855px) {
     .container {
         flex-direction: column;
