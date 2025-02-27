@@ -38,7 +38,7 @@
             {% for member in team.members %}
               <a href="/student/{{ member.id }}">
                 <figure>
-                  <img src="{{ member.avatar }}" onerror="this.src='assets/altperson.png'" alt="Afbeelding van student" width="30">
+                  <img src="{{ member.avatar | default: 'assets/altperson.png' }}" onerror="this.src='assets/altperson.png'" alt="Afbeelding van student" width="30">
                   <figcaption>{{ member.name }}</figcaption>
                 </figure>
               </a>
