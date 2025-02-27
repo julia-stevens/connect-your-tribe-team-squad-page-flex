@@ -26,8 +26,15 @@
     
         </p>
         <p>Github handle: {{ person.github_handle }}🤓</p>
-        <p>Github Link: <a href="https://github.com/{{ person.github_handle }}" target="_blank">Bekijk profiel 🔗</a></p>
-        <p>Bijnaam: {{ person.nickname }}🤪</p>
+        <p>Github Link: <a href="https://github.com/{{ person.github_handle }}" >Bekijk profiel 🔗</a></p>
+        <p>{% if person.nickname == null or person.nickname == "" or person.nickname == undefined %}
+            {%  assign nickname = 'Deze persoon heeft geen bijnaam... boring😴' %}
+            bijnaam: {{nickname}}
+            {%  else %}
+            {% assign nickname = person.nickname %}
+            bijnaam: {{nickname}}🤪
+        {%endif%}
+        </p>
         <p>Favoriete property: {{ person.fav_property }}❤️</p>
     </section>
     
