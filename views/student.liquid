@@ -23,7 +23,6 @@
             {% assign now_timestamp = 'now' | date: '%s' %}
             {% assign age = now_timestamp | minus: birth_timestamp | divided_by: 31556952 | floor %}
             leeftijd: {{ age }}👤
-    
         </p>
         <p>Github handle: {{ person.github_handle }}🤓</p>
         <p>Github Link: <a href="https://github.com/{{ person.github_handle }}" >Bekijk profiel 🔗</a></p>
@@ -37,7 +36,4 @@
         </p>
         <p>Favoriete property: {{ person.fav_property }}❤️</p>
     </section>
-    
 </main>
-
-
