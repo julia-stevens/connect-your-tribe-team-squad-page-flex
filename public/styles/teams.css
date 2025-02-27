@@ -5,25 +5,29 @@
     align-items: center;
 
     .teams {
-        padding: 2rem 3rem;
-        width: 70vw;
+        padding-top: 3rem;
         max-width: 70rem;
         /* FLEX parent */
         display: flex; 
         flex-direction: column;
+        align-items: center;
         gap: 4.5rem;    
+        width: 65vw;
+        max-width: 60rem;
+        min-width: 13rem;
         container: card-grid / inline-size;
 
         .team-card {
-            position: relative; 
+            position: relative;
             background-color: var(--primary-color);
             padding: 1.5em;
             border-radius: 5px;
             border: var(--secondary-color) 1px solid;
             box-shadow: -5px 5px 1px var(--secondary-color);
             width: 100%;
+            /* min-width: 13rem; */
             /* FLEX parent */
-            display: flex; 
+            display: flex;
             flex-direction: column;
             align-items: start;
             gap: 1em;
