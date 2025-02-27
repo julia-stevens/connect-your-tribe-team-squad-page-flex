@@ -10,6 +10,7 @@
   <h1>Bekijk hier alle teams</h1>
 
   <section class="teams">
+    <h2 class="visually-hidden">Teams</h2>
     {% for team in teams %}
       <article class="team-card">
         <h2>Team <strong>{{ team.teamName }}</strong></h2>
@@ -22,7 +23,7 @@
 
         <form method="post" action="/">
           <h3>Rating</h3>
-          <label for="ratingInput" class="input-output"> Beoordeel de squadpage van Team {{ team.teamName }}</label>
+          <label for="ratingInput{{ team.teamName | slugify }}" class="input-output"> Beoordeel de squadpage van Team {{ team.teamName }}</label>
           <div class="input-output">
               <input type="hidden" name="teamID" value="Team Flex / Rating for Team {{ team.teamName }}">
               <input type="range" id="ratingInput{{ team.teamName | replace: ' ', '-' }}" name="ratingInput" min="1" max="10" step="1" value="{{ team.rating  }}">
