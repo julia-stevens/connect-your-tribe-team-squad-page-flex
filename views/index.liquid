@@ -25,8 +25,8 @@
           <label for="ratingInput" class="input-output"> Beoordeel de squadpage van Team {{ team.teamName }}</label>
           <div class="input-output">
               <input type="hidden" name="teamID" value="Team Flex / Rating for Team {{ team.teamName }}">
-              <input type="range" id="ratingInput {{ team.teamName }} | slugify" name="ratingInput" min="1" max="10" step="1" value="{{ team.rating  }}">
-              <output id="amountOutput{{ team.teamName }} | slugify" for="ratingInput">{{ team.rating  }}</output>
+              <input type="range" id="ratingInput{{ team.teamName | replace: ' ', '-' }}" name="ratingInput" min="1" max="10" step="1" value="{{ team.rating  }}">
+              <output id="amountOutput{{ team.teamName | replace: ' ', '-' }}" for="ratingInput">{{ team.rating  }}</output>
           </div>
           <button type="submit" class="btn-small">Verstuur</button>
         </form>
