@@ -12,17 +12,15 @@
   <ul class="ul-students">
     {% for person in persons %}
     <li>
-      <img src="{{ person.avatar }}" onerror="this.src='assets/altperson.png'" alt="Profile Image">
+      <img src="{{ person.avatar }}" onerror="this.src='../assets/altperson.png'" alt="Profile Image">
       <a href="/student/{{ person.id }}">{{ person.name }}</a>
       <span class="person-info">
-        <img class="refresh-btn" src="assets/refresh.png" alt="Refreshnop">
+        <img class="refresh-btn" src="../assets/refresh.png" alt="Refreshnop">
         <span class="info-text">Geboortedatum: {{ person.birthdate | date: "%d-%m-%Y" }}</span>
       </span>
     </li>
     {% endfor %}
   </ul>
 </main>
-
-<img src="../public/styles/" alt="">
 
 {% render 'partials/footer.liquid' %}
