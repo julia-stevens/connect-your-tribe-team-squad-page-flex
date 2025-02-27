@@ -18,4 +18,8 @@ header {
         width: 30px;
         filter: brightness(0) saturate(100%) invert(12%) sepia(34%) saturate(2395%) hue-rotate(206deg) brightness(91%) contrast(115%);
     }
+
+    h1 {
+        font-size: clamp(0.75rem, 0.7388rem + 2.2422vw, 2rem);
+    }
 }
