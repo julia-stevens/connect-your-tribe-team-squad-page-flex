@@ -38,20 +38,20 @@ let teamLinksRepo = {
 }
 
 let teamLinksSite = {
-  Awesome:"",
+  Awesome:"https://connect-your-tribe-team-squad-page.onrender.com/",
   Blaze:"",
-  Chill:"",
-  Cool:"",
+  Chill:"https://connect-your-tribe-team-squad-page-9ofu.onrender.com/",
+  Cool:"https://connect-your-tribe-team-squad-page-0i5a.onrender.com/",
   Epic:"",
   Flex:"https://connect-your-tribe-team-squad-page-flex.onrender.com",
-  Flux:"",
-  Hype:"",
-  Peak:"",
+  Flux:"https://connect-your-tribe-team-squad-page-fwmf.onrender.com/",
+  Hype:"https://connect-your-tribe-team-squad-page-72f1.onrender.com/login",
+  Peak:"https://connect-your-tribe-team-squad-page-apxc.onrender.com/",
   Rad:"",
   Rocket:"https://programma.fdnd.nl/",
-  Spirit:"",
+  Spirit:"https://connect-your-tribe-team-squad-page-kb0l.onrender.com/",
   Storm:"",
-  Zen:""
+  Zen:"https://connect-your-tribe-team-squad-page-tl10.onrender.com/"
 }
 
 app.get('/', async function (request, response) {
