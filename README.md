@@ -29,7 +29,8 @@ Op de student page / detailpagina zie je een klein overzicht van een gekozen stu
 In het geval dat de student geen profielfoto heeft op github, wordt er een placeholder ingeladen om deze te vervangen.
 Ook is op deze pagina een link te vinden naar het github profiel van deze student zodat je zijn/haar werk makkelijk kan bekijken. **
 
-[screenshot]
+![74CECBBB-CF93-41CE-963D-145B5F239B63](https://github.com/user-attachments/assets/6d3b5c5d-b0cb-4c52-9179-426296116c0b)
+
 
 ## **Matthijs**
 
