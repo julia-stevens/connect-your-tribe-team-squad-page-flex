@@ -5,7 +5,7 @@
     align-items: center;
 
     .teams {
-        padding-top: 3rem;
+        padding: 3rem 0;
         max-width: 70rem;
         /* FLEX parent */
         display: flex; 
