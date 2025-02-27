@@ -8,6 +8,10 @@ aside {
 
 details {
     justify-self: center;
+    background: var(--tertiary-color);
+    color: black;
+    border-radius: 5px;
+    padding: 1em;
 }
 
 details[open] {
@@ -16,6 +20,20 @@ details[open] {
     align-items: center;
     gap: 1vh;
     margin-top: 1em;
+    border-radius: 0px 0 10px 10px;
+}
+
+.sort-options {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em;
+    & a {
+        color: black;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
 }
 
 .main-students {
@@ -33,11 +51,11 @@ details[open] {
     width: 80vw;
     flex-wrap: wrap;
 
-    @media (min-width: 550px) {
+    @media (min-width: 777px) {
         grid-template-columns: 1fr 1fr;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 1200px) {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
@@ -59,12 +77,17 @@ details[open] {
     }
 
     & a {
-        color: white;
+        color: var(--secondary-color);
         font-size: 1.3rem;
         font-weight: 600;
         text-decoration: none;
         text-align: center;
         margin-top: 4vh;
+        transition: .2s ease-in;
+
+        &:hover {
+            color: var(--highlight-color);
+        }
     }
 
     & span {
@@ -82,6 +105,9 @@ details[open] {
             height: 20px;
             margin-right: 1vw;
             cursor: pointer;
+            &:hover {
+                transform: scale(1.2);
+            }
         }
     }
 }

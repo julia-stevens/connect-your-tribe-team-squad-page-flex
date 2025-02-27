@@ -15,10 +15,10 @@
         <h2>Team <strong>{{ team.teamName }}</strong></h2>
 
         <div class="card-info">
-          <p><a href="">Link naar live site</a></p>
-          <p><a href="">Link naar repo</a></p>
+          <p><a href="{{ team.linkSite }}">Link naar live site</a></p>
+          <p><a href="{{ team.linkRepo }}">Link naar repo</a></p>
           <p class="rating"><em>{{ team.rating }}</em></p>
-        </div>
+        </div>  
 
         <form method="post" action="/">
           <h3>Rating</h3>

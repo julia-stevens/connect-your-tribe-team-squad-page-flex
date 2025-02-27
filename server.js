@@ -20,8 +20,41 @@ const squadResponse = await fetch('https://fdnd.directus.app/items/squad?filter=
 
 const squadResponseJSON = await squadResponse.json()
 
-app.get('/', async function (request, response) {
+let teamLinksRepo = {
+  Awesome:"https://github.com/misspastelwitch/connect-your-tribe-team-squad-page",
+  Blaze:"https://github.com/Mikiyas-hs/connect-your-tribe-team-squad-page",
+  Chill:"https://github.com/KyanTG/connect-your-tribe-team-squad-page",
+  Cool:"https://github.com/saschavanvliet/connect-your-tribe-team-squad-page",
+  Epic:"https://github.com/halie404/connect-your-tribe-team-squad-page",
+  Flex:"https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex",
+  Flux:"https://github.com/kimnikitaschijf/connect-your-tribe-team-squad-page",
+  Hype:"https://github.com/Naddybsx/connect-your-tribe-team-squad-page",
+  Peak:"https://github.com/irisvw/connect-your-tribe-team-squad-page",
+  Rad:"https://github.com/SuleymanHG/connect-your-tribe-team-squad-page",
+  Rocket:"https://github.com/fdnd-task/connect-your-tribe-team-squad-page",
+  Spirit:"https://github.com/Sebastiaan-hva/connect-your-tribe-team-squad-page",
+  Storm:"https://github.com/Brancovanbeek/connect-your-tribe-team-squad-page",
+  Zen:"https://github.com/Ravirkt/connect-your-tribe-team-squad-page"
+}
 
+let teamLinksSite = {
+  Awesome:"",
+  Blaze:"",
+  Chill:"",
+  Cool:"",
+  Epic:"",
+  Flex:"",
+  Flux:"",
+  Hype:"",
+  Peak:"",
+  Rad:"",
+  Rocket:"https://programma.fdnd.nl/",
+  Spirit:"",
+  Storm:"",
+  Zen:""
+}
+
+app.get('/', async function (request, response) {
   const teamResponse = await fetch('https://fdnd.directus.app/items/person/?fields=team&filter[team][_neq]=null&groupBy=team')
   const teamResponseJSON = await teamResponse.json()
 
@@ -31,7 +64,9 @@ app.get('/', async function (request, response) {
   // maak van elk team item in de teamRepsonseJSON.data een object met team en members 
   let teams = teamResponseJSON.data.map(teamObject => ({
     teamName: teamObject.team,
-    members: []
+    members: [],
+    linkSite: teamLinksSite[teamObject.team],
+    linkRepo: teamLinksRepo[teamObject.team]
   }));
 
   // voor elk persoon uit de API
@@ -49,12 +84,8 @@ app.get('/', async function (request, response) {
     }
   });
 
-  // console.log(JSON.stringify(teams));
-
-  // const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?filter={"for":"Team ${teamName}"}`)
   const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?sort=-created&filter[for][_starts_with]=Team%20Flex%20%2F%20Rating%20for`)
   const messagesResponseJSON = await messagesResponse.json()
-
 
   const messages = messagesResponseJSON.data;
   teams.forEach(team => {
@@ -74,6 +105,8 @@ app.get('/', async function (request, response) {
 
   // sort ratings highest to lowest
   teams = teams.sort((a, b) => b.rating - a.rating);
+
+  // console.log(teams)
 
   response.render('index.liquid', {
     // teamName: teamName,
@@ -100,7 +133,7 @@ app.post('/', async function (request, response) {
 app.get('/studenten', async function (request, response) {
   let personResponseJSON
 
-  let personURL = await fetch('https://fdnd.directus.app/items/person/?fields=*,squads.squad_id.name,squads.squad_id.cohort&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=name')
+  // let personURL = await fetch('https://fdnd.directus.app/items/person/?fields=*,squads.squad_id.name,squads.squad_id.cohort&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=name')
 
   if (request.query.sort == 'za'){
     const personResponse = await fetch('https://fdnd.directus.app/items/person/?fields=*,squads.squad_id.name,squads.squad_id.cohort&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=-name')
@@ -133,22 +166,23 @@ app.get('/student/:id', async function (request, response) {
   response.render('student.liquid', { person: personIdResponseJSON.data });
 });
 
-
-app.post('/', async function (request, response) {
-  await fetch('https://fdnd.directus.app/items/messages/', {
-    method: 'POST',
-    body: JSON.stringify({
-      for: `Team ${teamName}`,
-      from: request.body.from,
-      text: request.body.text
-    }),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  });
-
-  response.redirect(303, '/')
+app.get('/admin', async function (request, response){
+  response.render('admin.liquid')
 })
+
+app.post('/admin', async function (request, response) {
+    const getMessages = await fetch('https://fdnd.directus.app/items/messages/?filter[for][_starts_with]=Team%20Flex%20%2F%20Rating%20for');
+    const getMessagesJSON = await getMessages.json(); 
+
+    if (getMessagesJSON.data && getMessagesJSON.data.length > 0) {
+      for (const message of getMessagesJSON.data) {
+        await fetch(`https://fdnd.directus.app/items/messages/${message.id}`, {
+          method: 'DELETE',
+        });
+      }
+    }
+    response.redirect(303, '/');
+});
 
 app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {
