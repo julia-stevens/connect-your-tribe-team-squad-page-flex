@@ -79,8 +79,8 @@ In dit project hebben wij gewerkt met NodeJS en gebruiken we Express om een webs
 * [`app.get('/admin')` en `app.post('/admin')`](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/db625d75b15366a2d8743dd58e42badee35a9680/server.js#L169-L185): Beheert en verwijdert teamratings.
 
 ### Data ophalen en HTML renderen 
-* De data wordt opgehaald via `fetch()`-aanvragen aan de Directus API.
-* Vervolgens wordt deze data verwerkt (bijv. teams koppelen aan leden en ratings berekenen).
+* De data wordt opgehaald via `fetch()`-aanvragen aan de Directus API. [Zie hier bijvoorbeeld het fetchen van alle teams](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/33fec4ad92a4b6b59fa662e17b3d3ae1f166e2b7/server.js#L58)
+* Vervolgens wordt deze data verwerkt, [zie bijvoorbeeld teams koppelen aan leden](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/33fec4ad92a4b6b59fa662e17b3d3ae1f166e2b7/server.js#L64-L85). En daarna wordt de data [gerenderd](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/33fec4ad92a4b6b59fa662e17b3d3ae1f166e2b7/server.js#L111-L114)
 * De gerenderde HTML wordt gegenereerd via Liquid, waarbij variabelen worden doorgegeven aan de templates, zie bijvoorbeeld de [student detail pagina](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/db625d75b15366a2d8743dd58e42badee35a9680/views/student.liquid#L20-L38).
 
 ### Uitleg NodeJS, Express en Liquid
@@ -94,11 +94,13 @@ Express is een hulpmiddel binnen NodeJS, waarmee een webserver gebouwd kan worde
 Liquid is een template-engine waarmee je dynamische HTML-pagina's kunt genereren.
 
 ## Installatie
-Zoals beschreven bij [Kenmerken](#kenmerken) is bij dit project gebruik gemaakt van NodeJS. Om aan dit project te werken moet NodeJS geïnstalleerd zijn. 
+Zoals beschreven bij [Kenmerken](#kenmerken) is bij dit project gebruik gemaakt van NodeJS. Om aan dit project te werken moet NodeJS geïnstalleerd zijn. Eenmal geïnstalleerd kan het project geopend worden in de code editor. 
 
-Eenmal geïnstalleerd kan het project geopend worden in de code editor. 
 Voer in de terminal `npm install` uit om alle afhankelijkheden te installeren. 
+
 Voer vervolgens `npm start` uit om de server te starten.
+
+Ga in je browser naar http://localhost:8000 om het project te bekijken.
 
 ## Afspraken 
 ### Workflow
