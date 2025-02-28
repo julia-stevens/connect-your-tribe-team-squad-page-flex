@@ -76,7 +76,6 @@ In dit project hebben wij gewerkt met NodeJS en gebruiken we Express om een webs
 * [`app.post('/')`](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/db625d75b15366a2d8743dd58e42badee35a9680/server.js#L118-L131): Verstuurt een rating naar de Directus API en vernieuwt de pagina.
 * [`app.get('/studenten')`](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/db625d75b15366a2d8743dd58e42badee35a9680/server.js#L133-L150): Haalt studenten op en sorteert ze op naam of geboortedatum, afhankelijk van de querystring.
 * [`app.get('/student/:id')`](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/db625d75b15366a2d8743dd58e42badee35a9680/server.js#L160-L167): Toont de details van een specifieke student op basis van het ID.
-* [`app.get('/admin')` en `app.post('/admin')`](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/db625d75b15366a2d8743dd58e42badee35a9680/server.js#L169-L185): Beheert en verwijdert teamratings.
 
 ### Data ophalen en HTML renderen 
 * De data wordt opgehaald via `fetch()`-aanvragen aan de Directus API. [Zie hier bijvoorbeeld het fetchen van alle teams](https://github.com/julia-stevens/connect-your-tribe-team-squad-page-flex/blob/33fec4ad92a4b6b59fa662e17b3d3ae1f166e2b7/server.js#L58)
