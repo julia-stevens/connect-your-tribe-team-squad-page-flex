@@ -20,7 +20,7 @@ const squadResponse = await fetch('https://fdnd.directus.app/items/squad?filter=
 
 const squadResponseJSON = await squadResponse.json()
 
-const teamLinksRepo = {
+const teamLinksRepo = { // alle links naar repo's van teams
   Awesome:"https://github.com/misspastelwitch/connect-your-tribe-team-squad-page",
   Blaze:"https://github.com/Mikiyas-hs/connect-your-tribe-team-squad-page",
   Chill:"https://github.com/KyanTG/connect-your-tribe-team-squad-page",
@@ -37,7 +37,7 @@ const teamLinksRepo = {
   Zen:"https://github.com/Ravirkt/connect-your-tribe-team-squad-page"
 }
 
-const teamLinksSite = {
+const teamLinksSite = { // alle links naar live websites
   Awesome:"https://connect-your-tribe-team-squad-page.onrender.com/",
   Blaze:"",
   Chill:"https://connect-your-tribe-team-squad-page-9ofu.onrender.com/",
@@ -55,10 +55,10 @@ const teamLinksSite = {
 }
 
 app.get('/', async function (request, response) {
-  const teamResponse = await fetch('https://fdnd.directus.app/items/person/?fields=team&filter[team][_neq]=null&groupBy=team')
+  const teamResponse = await fetch('https://fdnd.directus.app/items/person/?fields=team&filter[team][_neq]=null&groupBy=team') // haal alle teams op
   const teamResponseJSON = await teamResponse.json()
 
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?fields=name,avatar,website,team,id&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=birthdate')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?fields=name,avatar,website,team,id&filter=%7B%22_and%22:%5B%7B%22squads%22:%7B%22squad_id%22:%7B%22tribe%22:%7B%22name%22:%22FDND%20Jaar%201%22%7D%7D%7D%7D,%7B%22squads%22:%7B%22squad_id%22:%7B%22cohort%22:%222425%22%7D%7D%7D%5D%7D&sort=birthdate') // haal alle personen op: naam, avatar, website, team, id
   const personResponseJSON = await personResponse.json()
 
   // maak van elk team item in de teamRepsonseJSON.data een object met team en members 
@@ -84,27 +84,27 @@ app.get('/', async function (request, response) {
     }
   });
 
-  const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?sort=-created&filter[for][_starts_with]=Team%20Flex%20%2F%20Rating%20for`)
+  const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?sort=-created&filter[for][_starts_with]=Team%20Flex%20%2F%20Rating%20for`) // haal alle berichten op met 'Team Flex / Rating for'
   const messagesResponseJSON = await messagesResponse.json()
 
   const messages = messagesResponseJSON.data;
-  teams.forEach(team => {
-    const ratings = messages.filter((a) => a.for === `Team Flex / Rating for Team ${team.teamName}`);
+  teams.forEach(team => { // loop door de teams
+    const ratings = messages.filter((a) => a.for === `Team Flex / Rating for Team ${team.teamName}`); // filter alle berichten per team en stop in nieuwe array (ratings)
     let rating = 0;
 
-    if (ratings.length !== 0) {
+    if (ratings.length !== 0) { // als er ratings zijn
       rating = 0
       ratings.forEach((r) => {
-        rating += parseInt(r.text);
+        rating += parseInt(r.text); // zet om naar int en tel op (want ratings zijn strings)
       })
-      rating /= ratings.length;
+      rating /= ratings.length; // reken remiddelde uit (totaal ratings delen door aantal)
     };
 
-    team.rating = rating.toFixed(1);
+    team.rating = rating.toFixed(1); // 1 decimaal achter komma
   })
 
   // sort ratings highest to lowest
-  teams = teams.sort((a, b) => b.rating - a.rating);
+  teams = teams.sort((a, b) => b.rating - a.rating); 
 
   // console.log(teams)
 
