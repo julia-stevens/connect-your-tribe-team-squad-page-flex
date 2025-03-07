@@ -21,10 +21,16 @@ Op onze squadpage kun je ervoor kiezen om ‘alle teams’ of  ‘alle studenten
 
 ### **Luc**
 Op de student page / detailpagina zie je een klein overzicht van een gekozen student. Hier is informatie te zien als: naam, profielfoto, leeftijd, github handle en meer. 
-In het geval dat de student geen profielfoto heeft op github, wordt er een placeholder ingeladen om deze te vervangen.
-Ook is op deze pagina een link te vinden naar het github profiel van deze student zodat je zijn/haar werk makkelijk kan bekijken. 
+
+#### Styling
+Voor de kleuren en het font heb ik de styling van https://programma.fdnd.nl/data-driven-web/connect-your-tribe gebruikt. Daar komt ook het ontwerp van het kaartje vandaan.
+Alle informatie staat indien daar ruimte voor is rechts naast de profielfoto van de gekozen student. In het geval het scherm te smal is om de informatie ernaast te tonen, komt deze er onder te staan.
 
 <img src="https://github.com/user-attachments/assets/6d3b5c5d-b0cb-4c52-9179-426296116c0b" width="600">
+
+#### Functionaliteit
+Zoals eerder vermeld staat op deze pagina een overzicht met informatie over de gekozen student. In het geval dat de student geen profielfoto heeft, wordt er een placeholder ingeladen om deze te vervangen.
+Ook staan er op deze pagina links naar github. Deze lijden naar de github pagina van de student waar al zijn/haar werk te zien is.
 
 ### **Matthijs**
 Bij de studenten page krijg je een overzicht van alle studenten. Je kan er voor kiezen om te sorteren op naam (a-z), op naam (z-a) of op leeftijd. Je krijgt de {{person.avatar}} te zien, die zij zelf in de database hebben ingevuld, de naam en daaronder wat extra informatie over die student. 
